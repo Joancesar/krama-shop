@@ -1,0 +1,7 @@
+{
+  "name": "Krama Shop",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
