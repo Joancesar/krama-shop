@@ -5,12 +5,40 @@
     </ion-toolbar>
   </ion-header>  
   <ion-content color="light">  
-    <ion-list *ngFor="let menuItem of menu">  
-      <ion-menu-toggle auto-hide="true">  
-        <ion-item [routerLink]="[urlPrefix, menuItem[menuUrl]]" routerDirection="forward">  
-          {{ menuItem[menuLabel] }}
-        </ion-item>  
-      </ion-menu-toggle>  
-    </ion-list>  
+    <ion-list>
+      <!-- Primer item Home -->
+      <ion-menu-toggle auto-hide="true">
+        <ion-item *ngIf="enableHomeItem" [routerLink]="homeUrl" 
+        [routerLinkActiveOptions]="{exact: true}" 
+        routerLinkActive="active-item" routerDirection="forward">  
+          {{ homeLabel }}
+        </ion-item>
+      </ion-menu-toggle>
+      
+      <!-- Con urlPrefix -->
+      <ng-container *ngIf="urlPrefix; else noPrefix">
+        <ion-menu-toggle *ngFor="let menuItem of menu" auto-hide="true">
+          <ion-item 
+          [routerLink]="[urlPrefix, menuItem[menuUrl]]" 
+          [routerLinkActiveOptions]="{exact: true}" 
+          routerLinkActive="active-item" routerDirection="forward">  
+            {{ menuItem[menuLabel] }}
+          </ion-item>  
+        </ion-menu-toggle>
+      </ng-container>
+      
+      <!-- Sin urlPrefix -->
+      <ng-template #noPrefix>
+        <ion-menu-toggle *ngFor="let menuItem of menu" auto-hide="true">
+          <ion-item 
+          [routerLink]="menuItem[menuUrl]" 
+          [routerLinkActiveOptions]="{exact: true}" 
+          routerLinkActive="active-item" routerDirection="forward">  
+            {{ menuItem[menuLabel] }}
+          </ion-item>  
+        </ion-menu-toggle> 
+      </ng-template>   
+         
+    </ion-list>
   </ion-content>   
 </ion-menu>

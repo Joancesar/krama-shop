@@ -16,6 +16,17 @@ export class MenuComponent {
   /* Título del menú */
   @Input() title = 'Content';
   
+  
+  /* Habilitar opcion Home */
+  @Input() enableHomeItem = false;
+  
+  /* Label del menuItem Home */
+  @Input() homeLabel = 'Home';
+  
+  /* Url del menuItem Home */
+  @Input() homeUrl = '/';
+  
+  
   /* Array de items del menu */
   @Input() menu = [];
   
@@ -23,10 +34,11 @@ export class MenuComponent {
   @Input() menuLabel = 'label';
   
   /* Prefijo de la URL para el routerLink */
-  @Input() urlPrefix = '/';
+  @Input() urlPrefix = '';
   
   /* Nombre del campo Url para el routerLink */
   @Input() menuUrl = 'url';
+  
 
   constructor() { }
 
