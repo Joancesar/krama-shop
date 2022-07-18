@@ -1,0 +1,16 @@
+<ion-menu side="start" [menuId]="menuId" [contentId]="contentId">  
+  <ion-header>  
+    <ion-toolbar>  
+      <ion-title>{{ title }}</ion-title>  
+    </ion-toolbar>
+  </ion-header>  
+  <ion-content color="light">  
+    <ion-list *ngFor="let menuItem of menu">  
+      <ion-menu-toggle auto-hide="true">  
+        <ion-item [routerLink]="[urlPrefix, menuItem[menuUrl]]" routerDirection="forward">  
+          {{ menuItem[menuLabel] }}
+        </ion-item>  
+      </ion-menu-toggle>  
+    </ion-list>  
+  </ion-content>   
+</ion-menu>
