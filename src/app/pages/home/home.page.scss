@@ -11,6 +11,12 @@
 
 
 @media(min-width: 768px) {
+  krama-menu {
+    display: none;
+  }
+  krama-menu ion-menu {
+    display: none;
+  }
   .mobile-header {
     display: none;
   }
@@ -49,6 +55,12 @@
 }
 
 @media(max-width: 768px) {
+  krama-menu {
+    display: block;
+  }
+  krama-menu ion-menu {
+    display: block;
+  }
   .mobile-header {
     display: block;
   }
@@ -56,4 +68,10 @@
   .header {
     display: none;
   }
+}
+
+
+.title {
+  color: #424242;
+  text-decoration: none;
 }

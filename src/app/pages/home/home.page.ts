@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FamiliasService } from 'src/app/services/familias-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   
-  familias = [];
+  familias$;
 
-  constructor() {}
+  constructor(private familiaService: FamiliasService) {}
   
   ngOnInit(): void {
-    this.familias =   
-    [  
-      { label: 'App', url: '/' },
-      { label: 'Book', url: '/book' },   
-      { label: 'Paint', url: '/paint' }
-    ];
+    this.familias$ = this.familiaService.getFamilias();
     
   }
 
