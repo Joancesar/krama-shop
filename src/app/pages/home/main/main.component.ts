@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Item } from 'src/app/models/item';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-main',
@@ -6,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  
+  featuredItems$: Observable<Item[]>;
 
-  constructor() { }
+  constructor(
+    private itemService: ItemService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.featuredItems$ = this.itemService.getFeaturedItems();
+  }
 
 }

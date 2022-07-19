@@ -1,0 +1,16 @@
+<div class="main-container">
+    
+    <h1>Los mas vendidos</h1>
+    <div class="item-container">
+        <a [routerLink]="['/item',item.id]" class="item" *ngFor="let item of featuredItems$ | async">
+            <div class="item-img">
+                <img [src]="item.pictureUrl" [alt]="item.description">
+            </div>
+            <div class="item-content">
+                <div class="item-title">{{ item.description }}</div> 
+                <div class="item-price">{{ item.price | number : '1.2-2' }}€</div> 
+            </div>
+        </a>
+    </div>
+    
+</div>
