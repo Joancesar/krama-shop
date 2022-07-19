@@ -3,13 +3,13 @@
     <ion-col size-xs="5" size-lg="12" class="card" *ngFor="let item of itemList$ | async">
       <div class="item">
         <div class="item-img">
-          <img [src]="item.pictureUrl" alt="">
+          <img [src]="item.pictureUrl" [alt]="item.description">
         </div>
         <div class="item-content">
           <h4> {{ item.description }} </h4>
           <div> {{ item.price | number : '1.2-2'}}€ </div>
           
-          <ion-button class="item-button">Comprar</ion-button>
+          <ion-button [routerLink]="['/item', item.id]" class="item-button">Ver detalle</ion-button>
         </div>
       </div>
     </ion-col>

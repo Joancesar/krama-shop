@@ -1,0 +1,23 @@
+<div class="item-container">
+  <div class="item" *ngIf="item$ | async as item">
+    <div class="item-img">
+      <img [src]="item.pictureUrl" [alt]="item.description">
+    </div>
+    <div class="item-content"> 
+      <h4 class="item-title">{{ item.description }}</h4> 
+      <div class="item-price">{{ item.price | number : '1.2-2'}}€</div> 
+      <div class="item-text">{{ item.text }}</div>
+      
+      <div *ngIf="item.stock > 15" class="item-stock">
+        En stock
+      </div>
+      <div *ngIf="item.stock > 0 && item.stock < 15 " class="item-stock-less">
+        Quedan pocos en stock ¡Date prisa!
+      </div>
+      <div *ngIf="item.stock === 0" class="item-stock-none">
+        No hay stock :(
+      </div>
+      <ion-button [routerLink]="['/']" class="item-button">Comprar</ion-button>
+    </div>
+  </div>  
+</div>
