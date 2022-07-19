@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment'
 import { Familia } from '../models/familia';
@@ -10,7 +9,7 @@ import { Familia } from '../models/familia';
 @Injectable({
   providedIn: 'root'
 })
-export class FamiliasService {
+export class FamiliaService {
   
   apiURL = environment.apiURL;
 

@@ -8,7 +8,17 @@
   transform: translateY(-50%);
 }
 
+@media(min-width: 768px) {
+  ion-router-outlet {
+    margin-top: 63px;
+  }
+}
 
+@media(max-width: 768px) {
+  ion-router-outlet {
+    margin-top: 56px;
+  }
+}
 
 @media(min-width: 768px) {
   krama-menu {

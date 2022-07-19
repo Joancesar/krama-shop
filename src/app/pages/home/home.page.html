@@ -1,5 +1,5 @@
 <krama-menu [menu]="familias$ | async" title="Krama Shop" 
-menuLabel="description" urlPrefix="item/list"
+menuLabel="description" urlPrefix="/item/list"
 menuUrl="id" [enableHomeItem]="true" homeLabel="Inicio">
 </krama-menu>
 
@@ -25,13 +25,11 @@ menuUrl="id" [enableHomeItem]="true" homeLabel="Inicio">
     </a>
     <div class="menu-items">
       <a *ngFor="let familia of familias$ | async" 
-      class="menu-item" [routerLink]="['item/list', familia.id]" >
+      class="menu-item" [routerLink]="['/item/list', familia.id]" routerDirection="forward">
         {{ familia.description }}
       </a>
     </div>
   </div>
+  <ion-router-outlet Id="content"></ion-router-outlet>
   
-  <div id="container">
-    <ion-router-outlet Id="content"></ion-router-outlet>
-  </div>
 </ion-content>

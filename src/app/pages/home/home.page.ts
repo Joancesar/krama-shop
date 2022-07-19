@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FamiliasService } from 'src/app/services/familias-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FamiliaService } from 'src/app/services/familia-service.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +12,14 @@ export class HomePage implements OnInit {
   
   familias$;
 
-  constructor(private familiaService: FamiliasService) {}
+  constructor(
+    private familiaService: FamiliaService,
+    public navCtrl: NavController
+    ) {}
   
   ngOnInit(): void {
     this.familias$ = this.familiaService.getFamilias();
     
   }
-
+  
 }
